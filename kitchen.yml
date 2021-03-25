@@ -1,0 +1,22 @@
+---
+driver:
+  name: terraform
+  color: true
+
+provisioner:
+  name: terraform
+
+verifier:
+  name: terraform
+
+platforms:
+  - name: local 
+
+suites:
+  - name: simple
+    driver:
+      root_module_directory: test/fixtures/simple
+    verifier:
+      color: false
+    # run_list:
+    # attributes:
