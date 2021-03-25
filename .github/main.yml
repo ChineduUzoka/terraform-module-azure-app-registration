@@ -1,0 +1,36 @@
+name: "Terraform"
+
+on:
+  push:
+    branches:
+      - master
+    pull_requests:
+    
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+
+      - name: Log in with Azure
+        uses: azure/login@1
+        with:
+          creds: {{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Run Kitchen Converge
+        run: |
+          bundle exec kitchen converge
+
+      - name: Run Kitchen Verify
+        run: |
+          bundle exec kitchen verify
+
+      - name: Run Kitchen Destroy
+        run: |
+          bundle exec kitchen destroy 
+          
+    
