@@ -17,9 +17,9 @@ jobs:
           bundler-cache: true
 
       - name: Log in with Azure
-          uses: azure/login@1
-          with:
-            creds: {{ secrets.AZURE_CREDENTIALS }}
+        uses: azure/login@1
+        with:
+          creds: {{ secrets.AZURE_CREDENTIALS }}
 
       - name: Run Kitchen Converge
         run: |
