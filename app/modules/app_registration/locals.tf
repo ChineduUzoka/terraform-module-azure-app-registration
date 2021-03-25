@@ -6,12 +6,12 @@ locals {
       name : ""
       app_roles : []
       oauth2_permissions : []
-    },p)
+    }, p)
   ]
 
   api_names = local.api_permissions[*].name
 
-   service_principals = {
+  service_principals = {
     for s in data.azuread_service_principal.main : s.display_name => {
       application_id     = s.application_id
       display_name       = s.display_name
@@ -21,7 +21,7 @@ locals {
   }
 
   required_resource_access = [
-    for a in local.api_permissions: {
+    for a in local.api_permissions : {
       resource_app_id = local.service_principals[a.name].application_id
       resource_access = concat(
         [for p in a.oauth2_permissions : {

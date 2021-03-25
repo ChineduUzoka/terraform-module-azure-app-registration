@@ -1,3 +1,3 @@
 module "simple" {
-    source = "../../../examples/simple"
+  source = "../../../examples/simple"
 }

@@ -3,11 +3,11 @@ resource "azuread_application" "app_registration" {
   homepage                   = var.homepage_url
   available_to_other_tenants = var.available_to_other_tenants
   reply_urls                 = var.reply_urls
-  logout_url    = var.logout_url
-  group_membership_claims = var.group_membership_claims
-  public_client = var.public_client
-  
-  
+  logout_url                 = var.logout_url
+  group_membership_claims    = var.group_membership_claims
+  public_client              = var.public_client
+
+
   dynamic "required_resource_access" {
     for_each = local.required_resource_access
 
