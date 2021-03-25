@@ -6,13 +6,13 @@ variable "name" {
 variable "homepage_url" {
   type        = string
   description = "The URL to the application's home page"
-  default = null
+  default     = null
 }
 
 variable "logout_url" {
-    type = string
-    description = "value"
-    default = null
+  type        = string
+  description = "value"
+  default     = null
 }
 
 variable "available_to_other_tenants" {
@@ -31,7 +31,7 @@ variable "reply_urls" {
 variable "application_password_description" {
   type        = string
   description = "Friendly name for the password"
-  default = ""
+  default     = ""
 }
 
 variable "password_expiry_in_days" {
@@ -49,7 +49,7 @@ variable "api_permissions" {
 # api_permissions = [
 #     {
 #       name = "Microsoft Graph"
-        # delegated perms
+# delegated perms
 #       oauth2_permissions = [
 #         "Directory.Read.All",
 #         "User.Read"
@@ -62,25 +62,25 @@ variable "api_permissions" {
 #   ]
 
 variable "app_roles" {
-  type = list(any)
+  type        = list(any)
   description = "value"
-  default = []
+  default     = []
 }
 
 variable "group_membership_claims" {
-    type = string
-    description = "value"
-    default = "SecurityGroups"
+  type        = string
+  description = "value"
+  default     = "SecurityGroups"
 }
 
 variable "application_secret" {
-    type = string
-    description = ""
-    default = "w003r0ffi499f"
+  type        = string
+  description = ""
+  default     = "w003r0ffi499f"
 }
 
 variable "public_client" {
-    type = bool
-    descrption = ""
-    default = false
+  type        = bool
+  description = ""
+  default     = false
 }
